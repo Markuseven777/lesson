@@ -16,6 +16,7 @@ public class LessonApplication {
     }
 
     @Controller
+    static
     class HelloController {
 
     }

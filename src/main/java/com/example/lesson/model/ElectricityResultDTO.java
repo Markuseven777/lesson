@@ -5,9 +5,9 @@ import lombok.Getter;
 @Getter
 public class ElectricityResultDTO {
 
-    private double consumption;
-    private double pricePerKWh;
-    private double price;
+    private final double consumption;
+    private final double pricePerKWh;
+    private final double price;
 
     public ElectricityResultDTO(double consumption, double pricePerKWh) {
         this.consumption = consumption;
