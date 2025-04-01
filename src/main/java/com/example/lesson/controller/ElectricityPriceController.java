@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ElectricityPriceController {
 
-    private ElectricityService electricityService;
+    private final ElectricityService electricityService;
+
+    public ElectricityPriceController(ElectricityService electricityService) {
+        this.electricityService = electricityService;
+    }
 
     @GetMapping("/")
     public String getMapping() {
