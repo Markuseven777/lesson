@@ -2,10 +2,13 @@ package com.example.lesson.controller;
 
 import com.example.lesson.model.ElectricityPriceDTO;
 import com.example.lesson.model.ElectricityResultDTO;
+import com.example.lesson.service.ElectricityService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class HelloController {
+public class ElectricityPriceController {
+
+    private ElectricityService electricityService;
 
     @GetMapping("/")
     public String getMapping() {
@@ -13,9 +16,13 @@ public class HelloController {
     }
 
     @PostMapping("/electricityPrice")
-    public ElectricityResultDTO electricityPrice(@RequestBody ElectricityPriceDTO data) {
-        return new ElectricityResultDTO(data);
+    public ElectricityResultDTO calculate(ElectricityPriceDTO input) {
+        if (input.getConsumption() <= 0 || input.getPricePerKWh() <= 0) {
+            throw new IllegalArgumentException("Consumption and price must be greater than 0.");
+        }
+        return electricityService.calculate(input);
     }
+
 
     @GetMapping("/consumption/{v}/price/{p}")
     public String calculate(@PathVariable double v, @PathVariable double p) {

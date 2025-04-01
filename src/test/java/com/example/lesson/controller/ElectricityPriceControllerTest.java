@@ -13,8 +13,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 
-@WebMvcTest(controllers = {HelloController.class})
-public class HelloControllerTest {
+@WebMvcTest(controllers = {ElectricityPriceController.class})
+public class ElectricityPriceControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
